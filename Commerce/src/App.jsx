@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./Component/NavBar";
 import Hero from "./Component/Hero";
 import Women from "./Component/Women";
-import Kids from "./Component/Kids";  
+import Kids from "./Component/Kids";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Men from "./Component/Men";
 import Cart from "./Component/Cart";
@@ -10,23 +10,18 @@ import Cart from "./Component/Cart";
 function App() {
   const [cart, setCart] = useState([]);
 
-  // Add product to cart
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const productWithId = { ...product, id: Date.now() };
+    setCart((prevCart) => [...prevCart, productWithId]); // Use functional update
+    console.log("Cart after adding:", cart); // Debugging
     alert("Product Added to Cart");
   };
-
-  // Remove product from cart
-  const removeFromCart = (index) => {
-    console.log("Removing item at index:", index); // Debugging
-
-    setCart((prevCart) => {
-      const updatedCart = prevCart.filter((_, i) => i !== index);
-      return updatedCart;
-    });
-
-    alert("Product removed from cart");
+  
+  const removeFromCart = (idToRemove) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== idToRemove));
+    console.log("Cart after removing:", cart); // Debugging
   };
+  
 
 
   const router = createBrowserRouter([

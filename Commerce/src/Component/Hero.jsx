@@ -52,7 +52,9 @@ function Hero() {
                 <div className="sale_text">
                     <h1>Winter Sale upto 50% off!</h1>
                     <p>Don't miss out on exclusive deals and unbeatable discounts—shop now and save big during our mega sale!</p>
+                    <button className='order-now'>Order Now</button>
                 </div>
+
             </div>
 
             <div className="fotter">

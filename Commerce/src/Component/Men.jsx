@@ -8,7 +8,9 @@ const Men = ({ addToCart }) => {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products/category/men's clothing")
+    axios.get("https://fakestoreapi.com/products/category/men%27s%20clothing")
+
+
       .then((res) => {
         if (Array.isArray(res.data)) {
           setProducts(res.data);
@@ -16,6 +18,7 @@ const Men = ({ addToCart }) => {
           setError("Invalid data format from API");
         }
         setLoading(false);
+        console.log("https://fakestoreapi.com/products/category/men's clothing");
       })
       .catch((err) => {
         setError("Failed to fetch products");

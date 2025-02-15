@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import Login from "./Login";
 
 const Navbar = ({ cartItemCount }) => {
   return (
@@ -13,6 +14,9 @@ const Navbar = ({ cartItemCount }) => {
           <li><Link to="/Women">Women</Link></li>
           <li><Link to="/Kids">Kids</Link></li>
         </ul>
+        <div>
+          <Login/>
+        </div>
         <div className="search-cart">
           <input type="text" placeholder="Search products..." />
           <Link to="/Cart">
@@ -22,6 +26,7 @@ const Navbar = ({ cartItemCount }) => {
             </button>
           </Link>
         </div>
+
       </nav>
     </>
   );
